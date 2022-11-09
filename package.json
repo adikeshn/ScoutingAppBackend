@@ -1,0 +1,23 @@
+{
+  "name": "scoutingappbackend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Turtlez200/ScoutingAppBackend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Turtlez200/ScoutingAppBackend/issues"
+  },
+  "homepage": "https://github.com/Turtlez200/ScoutingAppBackend#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "googleapis": "^109.0.1"
+  }
+}
