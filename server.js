@@ -3,10 +3,7 @@ const { google } = require("googleapis")
 const app = express();
 app.use(express.static("public"));
 app.use(express.json({ limit: '1mb' }))
-app.get("/", async (req, res) => {
 
-    res.send("hello world");
-})
 app.post("/sheets", async (req, res) => {
 
     const data = req.body
