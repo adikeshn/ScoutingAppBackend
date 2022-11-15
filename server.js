@@ -17,7 +17,7 @@ app.post("/sheets", async (req, res) => {
 
     const spreadSheetId = "18kWMUWZuIifPgPKdaI8jy29GRUWt_coTt5oflNNDUyI"
 
-    await googleSheets.spreadsheets.values.append({
+    googleSheets.spreadsheets.values.append({
         auth: auth,
         spreadsheetId: spreadSheetId,
         range: "Match Data!A:B",
@@ -26,7 +26,11 @@ app.post("/sheets", async (req, res) => {
             values: data
         },
     })
-    res.end()
+        .then(() => res.end())
+        .catch((err) => {
+            throw new Error("Error Occurred in Writing to Sheets")
+        })
+
 })
 
 
