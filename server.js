@@ -28,7 +28,7 @@ app.post("/sheets", async (req, res) => {
     })
         .then(() => res.end())
         .catch((err) => {
-            throw new Error("Error Occurred in Writing to Sheets")
+            res.status(400).send(err)
         })
 
 })
