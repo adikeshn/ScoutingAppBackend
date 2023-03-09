@@ -15,23 +15,22 @@ app.post("/sheets", async (req, res) => {
 
     const googleSheets = google.sheets({ version: "v4", auth: client })
 
-    const spreadSheetId = "18kWMUWZuIifPgPKdaI8jy29GRUWt_coTt5oflNNDUyI"
+    const spreadSheetId = "1zflTQdinpHe2MIk5_vy-QtYxo9v5kNqfltcjkVX7Trc"
 
     googleSheets.spreadsheets.values.append({
         auth: auth,
         spreadsheetId: spreadSheetId,
-        range: "Match Data!A:B",
+        range: "Match Data!A:AE",
         valueInputOption: "USER_ENTERED",
         resource: {
             values: data
         },
     })
-        .then(() => res.end())
+        .then(() => res.status(200).end())
         .catch((err) => {
-            res.status(400).send(err)
+            res.status(400).end()
         })
-
 })
 
 
-app.listen(process.env.PORT || 4000, () => { console.log("Listening on 3000") })
+app.listen(process.env.PORT || 4000, () => { console.log("Listening on 4000") })
