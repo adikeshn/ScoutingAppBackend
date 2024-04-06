@@ -6,7 +6,8 @@ app.use(express.json({ limit: '1mb' }))
 
 app.post("/sheets", async (req, res) => {
 
-    const data = req.body
+    const body = req.body
+    const data = body.data
     const auth = new google.auth.GoogleAuth({
         keyFile: "credentials.json",
         scopes: "https://www.googleapis.com/auth/spreadsheets"
@@ -15,7 +16,7 @@ app.post("/sheets", async (req, res) => {
 
     const googleSheets = google.sheets({ version: "v4", auth: client })
 
-    const spreadSheetId = "1zflTQdinpHe2MIk5_vy-QtYxo9v5kNqfltcjkVX7Trc"
+    const spreadSheetId = data.sheet
 
     googleSheets.spreadsheets.values.append({
         auth: auth,
